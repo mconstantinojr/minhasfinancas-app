@@ -8,7 +8,7 @@ import 'bootswatch/dist/flatly/bootstrap.css'
 import '../custom.css'
 import 'toastr/build/toastr.css'
 
-//import 'primereact/resources/themes/nova-light/theme.css';
+import 'primereact/resources/themes/lara-light-cyan/theme.css';
 import 'primereact/resources/primereact.css';
 import 'primeicons/primeicons.css';
 
