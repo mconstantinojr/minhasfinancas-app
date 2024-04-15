@@ -27,9 +27,9 @@ toastr.options = {
   }
 
   export function mensagemSucesso(mensagem) {
-    mostrarMensagem('Erro',mensagem,'success');
+    mostrarMensagem('Sucesso',mensagem,'success');
   }
 
   export function mensagemAlerta(mensagem) {
-    mostrarMensagem('Erro',mensagem,'warning');
+    mostrarMensagem('Alerta',mensagem,'warning');
   }

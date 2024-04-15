@@ -6,6 +6,7 @@ import axios from 'axios'
 import UsuarioService from "../app/service/usuarioService";
 import LocalStorageService from "../app/service/localStorageService";
 import { mensagemErro } from "../components/toastr";
+import { AuthContext } from "../main/provedorAutenticacao";
 
 
 
@@ -30,6 +31,7 @@ class Login extends React.Component{
         }).then( response => {
             //console.log(response)
             LocalStorageService.adicionarItem('_usuario_logado', response.data);
+            this.context.iniciarSessao(response.data);
             //localStorage.setItem('_usuario_logado', JSON.stringify(response.data))
             this.props.history.push("/home")
         }).catch( erro => {
@@ -120,11 +122,12 @@ class Login extends React.Component{
                                                    id="exampleInputPassword1"
                                                    placeholder="Password"/>
                                         </FormGroup>
+                                        <br></br>
                                         <button onClick={this.entrar} className="btn btn-success">
-                                            Entrar
+                                        <i className="pi pi-sign-in"></i>Entrar
                                         </button>
                                         <button onClick={this.prepareCadastrar} className="btn btn-danger">
-                                            Cadastrar
+                                        <i className="pi pi-plus"></i>Cadastrar
                                         </button>
                                     </fieldset>
                                 </div>
@@ -137,5 +140,7 @@ class Login extends React.Component{
         )
     }
 }
+
+Login.contextType = AuthContext
 
 export default withRouter(Login);
